@@ -4,7 +4,7 @@
 
 int main(int argc, const char *argv[]){
 
-if(argc<3 || argc>3){
+if(argc!=3){
     printf("ungueltige Anzahl Argumente");
     return 1;
 }
