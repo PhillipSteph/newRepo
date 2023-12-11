@@ -1,0 +1,4 @@
+gcc -o name.exe name.c
+// zum Compilen
+
+name arg1 arg2 ... zum runnen
