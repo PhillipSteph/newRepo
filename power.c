@@ -17,10 +17,8 @@ switch(argc){
         printf("zu viele Argumente!");
         break;
 }
-
 return 0;
 }
-
 
 void berechnepotenz(float basis, int exponent){
 ergebnis= basis;

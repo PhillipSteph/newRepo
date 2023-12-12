@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/phill_9k2xq1z/Documents/DHGE/Programmierung/C FIles/05.12.2023",
-      "program": "c:/Users/phill_9k2xq1z/Documents/DHGE/Programmierung/C FIles/05.12.2023/build/Debug/outDebug",
+      "cwd": "c:/Users/phill_9k2xq1z/Documents/DHGE/Programmierung/C FIles/1.Semester",
+      "program": "c:/Users/phill_9k2xq1z/Documents/DHGE/Programmierung/C FIles/1.Semester/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

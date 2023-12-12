@@ -7,7 +7,6 @@ int main(int argc, const char *argv[])
         break;
         case 2: printf("Hallo, %s!\n", argv[1]);
         break;
-
         default:
             printf("Hallo, %s", argv[1]);
             for(int i = 2; i<argc-1;++i){
@@ -16,7 +15,5 @@ int main(int argc, const char *argv[])
             printf(" und %s!", argv[argc-1]);
         break;
     }
-
-
   return 0;
 }
