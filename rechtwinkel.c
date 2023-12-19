@@ -8,7 +8,7 @@ int main(int argc, const char *argv[]){
         printf("Syntax: rechtwinkel (Knoten)");
         return 1;
     }
-    int k = atoi(argv[1]);
+    int k = atoi(argv[1])-1;
     int u = k;
     int a,b,c,ab,tempc,tempu;
     int counter=0;
