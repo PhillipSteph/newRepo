@@ -56,6 +56,8 @@ int zufall;
 
 //calculate factor
 float faktor=1;
+int temp=max;
+int counter=0;
 while(max<=90){
     max*=2;
     faktor/=2;
@@ -64,17 +66,18 @@ while(max>150){
     max/=2;
     faktor*=2;
 }
-for(int i=0;i<=r;i++){
-        if(arr[i]<10){
-            printf(" ");
-        }
-        if(arr[i]<100){
-            printf(" ");
-        }
-        if(arr[i]<1000){
-            printf(" ");
-        }
+while(temp>10){
+    temp/=10;
+    counter +=1;
+}
+
+        printf("\n");
+
+        for(int i=0;i<=r;i++){
         printf("%d | ",arr[i]);
+            for(j=1;j<=temp;j++){
+        printf(" ");
+    }
         for(j=0;j<arr[i]/faktor;j++){
             printf("X");
         }
