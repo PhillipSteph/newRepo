@@ -38,7 +38,7 @@ int temp= *ptr1;
 *ptr2 = temp;
 }
 void reverse(int* ptr1, int* ptr2){
-    
+
 while(ptr2>ptr1){
     swap(ptr1, ptr2);
     ptr1++;ptr2--;
@@ -76,6 +76,7 @@ bool perm(int* arr,int a){
     int* rechts = find_larger(arr,lastptr,*links);
     swap(links, rechts);
     reverse(links+1,lastptr);
+    
 return true;
 }
 void fill(int arr[],int a){
