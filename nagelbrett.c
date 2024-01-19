@@ -28,7 +28,7 @@ int zufall;
         arr[i]=0;
     }
 
-    for(j=1;j<=k;++j){  //von 1..k Kugeln
+    for(j=1;j<=k;++j){
         wert=0;
         for(i=1;i<=r;++i){
             zufall = rand() % 2;
@@ -74,7 +74,7 @@ while(temp>10){
         printf("\n");
 
         for(int i=0;i<=r;i++){
-        printf("%d | ",arr[i]);
+        printf("%6d | ",arr[i]);
             for(j=1;j<=temp;j++){
         printf(" ");
     }
