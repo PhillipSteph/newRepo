@@ -28,9 +28,9 @@ sdlSetBlack();
 while(1){
   
 r = rand() % 5;
-k = rand() %255;
-l = rand() %1;
-m = rand() %1;
+k = 255;
+l = 0;
+m = 0;
     switch(r){
             case 0: if(x<SDL_X_SIZE-2){sdlDrawPoint(x+1,y,k,l,m);sdlDrawPoint(x+2,y,k,l,m);x+=2;};
             break;
