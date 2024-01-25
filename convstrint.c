@@ -16,7 +16,8 @@ int main(int argc, const char *argv[]){
             printf("\n%d",zahl);
         }
         else {
-            char* string = inttostring(atoi(argv[j]));
+            char output;
+            char* string = inttostring(atoi(argv[j]),&output);
             char a;
             while(a!=0){
                 a = *string++;
