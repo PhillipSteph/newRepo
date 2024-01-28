@@ -17,7 +17,7 @@ write = fopen(argv[2],"w");
 
 if(read==NULL){
     fprintf(stderr, "%s: Fehler beim Zugriff der Datei %s: %s!", argv[0], argv[1], strerror(errno));
-    EXIT_FAILURE;
+    exit(EXIT_FAILURE);
 }
 
 char text,temp;
