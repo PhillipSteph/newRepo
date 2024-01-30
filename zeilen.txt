@@ -1,0 +1,55 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(int argc, char *argv[])
+{
+
+    if (argc < 2 || argc > 5)
+    {
+        return 1;
+    }
+    FILE *dateiin, *dateiout;
+
+    if (argc > 3)
+    {
+        dateiin = fopen(argv[3], "r");
+        if (argc == 5)
+        {
+            dateiout = fopen(argv[4], "w");
+        }
+        else
+        {
+            dateiout = stdout;
+        }
+    }
+    else
+    {
+        dateiin = stdin;
+        dateiout = stdout;
+    }
+    // search = argv[1]
+    // write = argv[2]
+
+    char string[80];
+    while (fgets(string, 80, dateiin))
+    {
+        char *str = string;
+        // printf("%s\n",string);
+        for (;;)
+        {
+            char *ptr = strstr(str, argv[1]);
+            if (ptr == NULL)
+                break;
+            *ptr = '\0';
+            printf("%s", str);fputs(str,dateiout);
+            printf("%s", argv[2]);fputs(argv[2],dateiout);
+            str = ptr + strlen(argv[1]);
+        }
+        printf("%s", str);fputs(str,dateiout);
+    }
+    fclose(dateiin);
+    fclose(dateiout);
+
+    return 0;
+}
