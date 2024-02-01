@@ -21,15 +21,19 @@ if(read==NULL){
 }
 
 char text,temp;
-
+int c = 0;
 while(text = fgetc(read),text != EOF){
-    if(isspace(text) && isspace(temp)){
+    if(isspace(text)){
         temp = text;
     }
     else{
        // printf("%c",text);   
         fputc(text,write);
         temp = text;
+        c++; if(c==30){
+            fputc('\n',write);
+            c=0;
+        }
     }
 }
 

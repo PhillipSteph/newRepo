@@ -6,9 +6,9 @@
 #define _SDLINTERF_H
 
 // Breite des Grafik-Fensters (in Pixeln)
-#define SDL_X_SIZE 1600
+#define SDL_X_SIZE 1000
 // Höhe des Grafik-Fensters (in Pixeln)
-#define SDL_Y_SIZE 900
+#define SDL_Y_SIZE 1000
 
 // Ändert die Berechnung des Farbkreises für sdlDrawCyclicPoint:
 // Ohne COLOR_WHEEL_... (default) rotiert der Farbkreis
