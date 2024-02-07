@@ -10,7 +10,7 @@ int main(int argc, const char *argv[])
 {
     srand(time(NULL));
     sdlInit();
-    sdlSetBlack();
+    sdlDrawRectFromTo(1,1,SDL_X_SIZE-1,SDL_Y_SIZE-1,0,0,250);
     const int size = atoi(argv[1]);
     const int possibility = atoi(argv[2]);
     const int ms = atoi(argv[3]);
@@ -45,7 +45,7 @@ int main(int argc, const char *argv[])
             }
         }
     }*/
-    int cnt = size * size * 10;
+    int cnt = size * size * 5;
     int r;
 
     while (cnt > 0) // start repeat
@@ -75,7 +75,7 @@ int main(int argc, const char *argv[])
             {
                 if (arr[k][l])
                 {
-                    sdlDrawRectFromTo((SDL_X_SIZE * k / size) + 1, (SDL_Y_SIZE * l / size) + 1, (SDL_X_SIZE * (k + 1) / size) - 1, (SDL_Y_SIZE * (l + 1) / size) - 1, color(colorarr[k][l], colorarr[size - 1 - k][size - 1 - l], colorarr[k][l]));
+                    sdlDrawRectFromTo((SDL_X_SIZE * k / size) + 1, (SDL_Y_SIZE * l / size) + 1, (SDL_X_SIZE * (k + 1) / size) - 1, (SDL_Y_SIZE * (l + 1) / size) - 1, color(255,255,255));
                 }
             }
         }
@@ -99,7 +99,7 @@ int main(int argc, const char *argv[])
                 arr[i][j] = sarr[i][j]; // kopiere sarray in array
             }
         }
-        sdlSetBlack();
+        sdlDrawRectFromTo(0,0,SDL_X_SIZE-1,SDL_Y_SIZE-1,0,0,200);
     } // end of while
     sdlUpdate();
     sdlMilliSleep(2000);

@@ -1,0 +1,22 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <errno.h>
+
+int main(int argc, void *argv[])
+{
+    int maxlen = 100;
+    char line[maxlen];
+    while (fgets(line, maxlen, stdin))
+    {
+        if (line[strlen(line) - 1] != '\n')
+        {
+            fprintf(stderr, "%s: Fehler beim Lesen des Strings", argv[0]);
+        }
+        else
+        {
+            fputs(line, stdout);
+        }
+    }
+
+    return 0;
