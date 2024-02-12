@@ -10,7 +10,7 @@ int main(int argc, const char *argv[])
 {
     srand(time(NULL));
     sdlInit();
-    sdlDrawRectFromTo(1,1,SDL_X_SIZE-1,SDL_Y_SIZE-1,0,0,250);
+    sdlDrawRectFromTo(1, 1, SDL_X_SIZE - 1, SDL_Y_SIZE - 1, 0, 0, 250);
     const int size = atoi(argv[1]);
     const int possibility = atoi(argv[2]);
     const int ms = atoi(argv[3]);
@@ -75,7 +75,7 @@ int main(int argc, const char *argv[])
             {
                 if (arr[k][l])
                 {
-                    sdlDrawRectFromTo((SDL_X_SIZE * k / size) + 1, (SDL_Y_SIZE * l / size) + 1, (SDL_X_SIZE * (k + 1) / size) - 1, (SDL_Y_SIZE * (l + 1) / size) - 1, color(255,255,255));
+                    sdlDrawRectFromTo((SDL_X_SIZE * k / size) + 1, (SDL_Y_SIZE * l / size) + 1, (SDL_X_SIZE * (k + 1) / size) - 1, (SDL_Y_SIZE * (l + 1) / size) - 1, color(255, 255, 255));
                 }
             }
         }
@@ -92,6 +92,22 @@ int main(int argc, const char *argv[])
                 }
             }
         }
+        int x = 0;
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size-1; j++)
+            {
+                if (sarr[i][j] == 0)
+                {
+                    x++;
+                }
+            }
+            if(x==size){
+                for(int k=0;k<size;k++){
+                    sarr[i][k]==0;
+                }
+            }
+        }
         for (int i = 0; i < size; i++)
         {
             for (int j = 0; j < size - 1; j++)
@@ -99,7 +115,7 @@ int main(int argc, const char *argv[])
                 arr[i][j] = sarr[i][j]; // kopiere sarray in array
             }
         }
-        sdlDrawRectFromTo(0,0,SDL_X_SIZE-1,SDL_Y_SIZE-1,0,0,200);
+        sdlDrawRectFromTo(0, 0, SDL_X_SIZE - 1, SDL_Y_SIZE - 1, 0, 0, 200);
     } // end of while
     sdlUpdate();
     sdlMilliSleep(2000);
