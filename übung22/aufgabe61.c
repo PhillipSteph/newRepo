@@ -16,7 +16,8 @@ elem *neu(int zahl, elem *next)
     elem *e = (elem *)(malloc(sizeof(elem)));
     if (e == NULL)
     {
-        fprintf(stderr, "Fehler bei Speicherreservierung: %s", strerror);
+        fprintf(stderr, "Fehler bei Speicherreservierung: %s", strerror(errno));
+        exit(1);
     }
     e->anzahl = 0;
     e->zahl = zahl;
@@ -25,39 +26,47 @@ elem *neu(int zahl, elem *next)
     return e;
 }
 
-elem *find(elem *first, int zahl)
+elem *find(elem **head_p, int zahl)
 {
 
     // Leer oder erstes ELement größer
     // head zeigt auf kleinstes Element
     // in sortierten Liste.
-    if (first->zahl >= zahl || first == NULL)
+    elem *first = *head_p;
+    if (first == NULL || first->zahl > zahl)
     {
         elem *n = neu(zahl, first);
+        *head_p = n;
+        return n;
     }
     else
     {
         elem *ptr = first;
-        while (ptr != NULL)
+        while (1)
         {
-            if(ptr->zahl == zahl){
+            if (ptr->zahl == zahl)
+            {
                 return ptr;
-            }else if(ptr->next==NULL || ptr->next->zahl>=zahl){
-                elem* n=neu(zahl,ptr->next);
+            }
+            else if (ptr->next == NULL || ptr->next->zahl > zahl)
+            {
+                elem *n = neu(zahl, ptr->next);
                 ptr->next = n;
                 return n;
             }
-        ptr = ptr->next;
+            ptr = ptr->next;
         }
     }
     // legt neues ELement an, welches Auf vorheriges
     // erstes Zeigt oder auf NULL wenn kein vorheriges existiert.
 }
 
-void print(elem* head){
-    elem* ptr = head;
-    while(ptr!=NULL){
-        printf("%d ",ptr->zahl);
+void print(elem *head)
+{
+    elem *ptr = head;
+    while (ptr != NULL)
+    {
+        printf("%d:%d ", ptr->zahl, ptr->anzahl);
         ptr = ptr->next;
     }
     putchar('\n');
@@ -65,15 +74,23 @@ void print(elem* head){
 
 int main(int argc, char const *argv[])
 {
-    elem* head = NULL;
-    for(int i=1;i<argc;i++){
-        elem* e = find(head,atoi(argv[i]));
-        e->anzahl++;
+    elem *head = NULL;
+    for (int i = 1; i < argc; i++)
+    {
 
+        elem *e = find(&head, atoi(argv[i]));
+        ++(e->anzahl);
+        print(head);
     }
-    print(head);
     return 0;
 }
+
+
+
+
+
+
+
 
 // Deklaration:
 // Pointer auf einen Datentypen werden mit dem Datentypen selber und einem STernchen Deklariert
