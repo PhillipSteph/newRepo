@@ -75,7 +75,7 @@ int main(int argc, const char *argv[])
             {
                 if (arr[k][l])
                 {
-                    sdlDrawRectFromTo((SDL_X_SIZE * k / size) + 1, (SDL_Y_SIZE * l / size) + 1, (SDL_X_SIZE * (k + 1) / size) - 1, (SDL_Y_SIZE * (l + 1) / size) - 1, color(255, 255, 255));
+                    sdlDrawRectFromTo((SDL_X_SIZE * k / size) + 1, (SDL_Y_SIZE * l / size) + 1, (SDL_X_SIZE * (k + 1) / size) - 1, (SDL_Y_SIZE * (l + 1) / size) - 1, color(k, 255-l, 0));
                 }
             }
         }
@@ -115,7 +115,7 @@ int main(int argc, const char *argv[])
                 arr[i][j] = sarr[i][j]; // kopiere sarray in array
             }
         }
-        sdlDrawRectFromTo(0, 0, SDL_X_SIZE - 1, SDL_Y_SIZE - 1, 0, 0, 200);
+        sdlDrawRectFromTo(0, 0, SDL_X_SIZE - 1, SDL_Y_SIZE - 1, 0, 0, 0);
     } // end of while
     sdlUpdate();
     sdlMilliSleep(2000);

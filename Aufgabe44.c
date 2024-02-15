@@ -1,9 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
-char *strrepeat(char *dest, char c, int cnt)
+char *strrepeat(char c, int cnt)
 {
-    dest = (char*)(malloc(sizeof(char)*(cnt+1)));
+    char* dest = (char*)(malloc(sizeof(char)*(cnt+1)));
     char *endptr = dest + cnt;
     for (char *current = dest; current < endptr; ++current)
     {
